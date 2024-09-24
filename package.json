@@ -1,0 +1,19 @@
+{
+  "name": "luna",
+  "module": "index.ts",
+  "type": "module",
+  "scripts": {
+    "dev": "bun --watch index.ts & bunx prisma studio"
+  },
+  "devDependencies": {
+    "bun-types": "latest",
+    "prisma": "^5.20.0"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "@prisma/client": "^5.20.0",
+    "grammy": "^1.30.0"
+  }
+}
