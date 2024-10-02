@@ -6,7 +6,7 @@ export const sendMenuMessage = async (ctx: Context, replaceMessageId?: number) =
 	const keyboard = new InlineKeyboard()
 		.text("⭐ Мои подписки ⭐", Events.my_devices)
 		.row()
-		.text("🤝 Пригласить 🤝", Events.referal)
+		.text("🤝 Пригласить друга 🤝", Events.referal)
 		.text("💬 Помощь 💬", Events.help)
 
 	const user = await PrismaLuna.user.findFirst({ where: { id: ctx.chat!.id.toString() } })
@@ -19,10 +19,12 @@ export const sendMenuMessage = async (ctx: Context, replaceMessageId?: number) =
 	let message
 
 	if (activeSubscriptions.length === 0) {
-		message = `У Вас нет активных подписок 🥺\nВы можете добавить подписку на устройстов в "Мои подписки"`
+		message = `У Вас нет активных подписок 🥺`
 	} else {
 		message = `Количество активных подписок ${activeSubscriptions.length} - Подробнее в "Мои подписки"`
 	}
+
+	const newSubscritption = `Чтобы добавить новое устройство нажмите на "Мои подписки"`
 
 	const referalMessage = "Приводите друзей 🤜🤛 и получайте бесплатные дни на Вашу подписку!💪"
 
@@ -32,7 +34,7 @@ export const sendMenuMessage = async (ctx: Context, replaceMessageId?: number) =
 			replaceMessageId,
 			`Добро пожаловать на lunavpn, ${
 				user?.name || "аноним :)"
-			}!\n\n${message}\n\n${referalMessage}`,
+			}!\n\n${message}\n\n${newSubscritption}\n\n${referalMessage}`,
 			{
 				reply_markup: keyboard,
 			},
@@ -45,7 +47,7 @@ export const sendMenuMessage = async (ctx: Context, replaceMessageId?: number) =
 	return await ctx.reply(
 		`Добро пожаловать на lunavpn, ${
 			user?.name || "аноним :)"
-		}!\n\n${message}\n\n${referalMessage}`,
+		}!\n\n${message}\n\n${newSubscritption}\n\n${referalMessage}`,
 		{
 			reply_markup: keyboard,
 		},
