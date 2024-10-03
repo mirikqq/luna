@@ -7,6 +7,7 @@ export const sendMenuMessage = async (ctx: Context, replaceMessageId?: number) =
 		.text("⭐ Мои подписки ⭐", Events.my_devices)
 		.row()
 		.text("🤝 Пригласить друга 🤝", Events.referal)
+		.row()
 		.text("💬 Помощь 💬", Events.help)
 
 	const user = await PrismaLuna.user.findFirst({ where: { id: ctx.chat!.id.toString() } })
