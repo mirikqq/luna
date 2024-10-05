@@ -7,7 +7,6 @@ export const sendMenuMessage = async (ctx: Context, replaceMessageId?: number) =
 		.text("⭐ Мои подписки ⭐", Events.my_devices)
 		.row()
 		.text("🤝 Пригласить друга 🤝", Events.referal)
-		.row()
 		.text("💬 Помощь 💬", Events.help)
 
 	const user = await PrismaLuna.user.findFirst({ where: { id: ctx.chat!.id.toString() } })
@@ -27,19 +26,30 @@ export const sendMenuMessage = async (ctx: Context, replaceMessageId?: number) =
 
 	const newSubscritption = `Чтобы добавить новое устройство нажмите на "Мои подписки"`
 
-	const referalMessage = "Приводите друзей 🤜🤛 и получайте бесплатные дни на Вашу подписку!💪"
+	const referalMessage = "Приводите друзей и получайте бесплатные дни на Вашу подписку!"
 
 	if (replaceMessageId) {
-		await ctx.api.editMessageText(
-			ctx.chat!.id,
-			replaceMessageId,
-			`Добро пожаловать на lunavpn, ${
-				user?.name || "аноним :)"
-			}!\n\n${message}\n\n${newSubscritption}\n\n${referalMessage}`,
-			{
-				reply_markup: keyboard,
-			},
-		)
+		try {
+			await ctx.api.editMessageText(
+				ctx.chat!.id,
+				replaceMessageId,
+				`Добро пожаловать на lunavpn, ${
+					user?.name || "аноним :)"
+				}!\n\n${message}\n\n${newSubscritption}\n\n${referalMessage}`,
+				{
+					reply_markup: keyboard,
+				},
+			)
+		} catch (e) {
+			await ctx.reply(
+				`Добро пожаловать на lunavpn, ${
+					user?.name || "аноним :)"
+				}!\n\n${message}\n\n${newSubscritption}\n\n${referalMessage}`,
+				{
+					reply_markup: keyboard,
+				},
+			)
+		}
 		return {
 			message_id: replaceMessageId,
 		}

@@ -1,9 +1,10 @@
 import { Bot, InlineKeyboard, InputFile } from "grammy"
 import { sendMenuMessage } from "../messages/menu"
 import { Events } from "../constants"
-import { createUser } from "../repos/createUser"
+import { createUser } from "../services/createUser"
 import path from "path"
 import { PrismaLuna } from ".."
+import { sendHelpMessage } from "../messages/help"
 
 let isUser = false
 
@@ -33,5 +34,9 @@ export function registerCommands(bot: Bot) {
 			}\n\nРады видеть Вас на просторах локального общества, в котором нет каких-либо ограничений!`,
 			reply_markup: keyboard,
 		})
+	})
+
+	bot.command("help", async (ctx) => {
+		await sendHelpMessage(ctx)
 	})
 }

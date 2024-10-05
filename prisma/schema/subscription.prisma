@@ -1,9 +1,10 @@
 model Subscription {
   id String @id @map("_id")
   user User @relation(fields: [userID], references: [id])
-  userID String @unique
+  userID String
   is_active Boolean @default(false)
   active_up_to DateTime?
   vless_config String?
   socks_config String?
+  device String?
 }
