@@ -5,5 +5,6 @@ declare module "bun" {
 		CLIENTS_INBOUND_ID: string
 		PANEL_LOGIN: string
 		PANEL_PASSWORD: string
+		MERCHANT_TOKEN: string
 	}
 }

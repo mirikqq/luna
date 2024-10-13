@@ -29,11 +29,11 @@ createdb luna
 run init command
 
 ```bash
-npx prisma init --datasource-provider mysql --url postgresql://user:password@localhost:5432/luna
+bunx prisma init --datasource-provider postgresql --url postgresql://user:password@localhost:5432/luna
 ```
 
 run push to db command
 
 ```bash
-npx prisma db push
+bunx prisma db push
 ```
