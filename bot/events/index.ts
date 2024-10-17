@@ -14,6 +14,7 @@ export const registerEvents = (bot: Bot) => {
 			await sendSubscriptionsMessage(ctx, ctx.callbackQuery.message?.message_id || undefined)
 		}
 		if (ctx.callbackQuery.data === Events.start) {
+			console.log(ctx.callbackQuery?.data)
 			await sendMenuMessage(ctx, ctx.callbackQuery.message?.message_id || undefined)
 		}
 		if (ctx.callbackQuery.data === Events.help) {
@@ -31,7 +32,7 @@ export const registerEvents = (bot: Bot) => {
 		}
 		if (ctx.callbackQuery.data.startsWith("device")) {
 			await sendPayment(ctx, ctx.callbackQuery.message?.message_id || undefined)
-			await ctx.reply('status: "completed"')
+			await ctx.reply('status: "passed"')
 			// const subId = await createSubscription(
 			// 	"1month",
 			// 	ctx.chat!.id.toString(),

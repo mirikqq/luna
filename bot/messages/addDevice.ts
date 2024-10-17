@@ -9,7 +9,7 @@ export const sendAddDevice = async (ctx: Context, replaceMessageId?: number) => 
 		.text("IOS", `device=${device.ios}`)
 		.text("Android", `device=${device.android}`)
 		.text("Windows", `device=${device.windows}`)
-		.text("Macos", `device=${device.mac}`)
+		.text("Macos", `device=${device.macos}`)
 
 	if (replaceMessageId) {
 		try {

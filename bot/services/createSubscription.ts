@@ -5,7 +5,7 @@ import { Device, vlessConfig } from "../constants"
 import { PrismaLuna } from ".."
 import { v4 as uuidv4 } from "uuid"
 
-type Subscription = "1month" | "3month" | "6month" | "12month"
+type Subscription = "15days" | "1month" | "3month" | "6month" | "12month"
 
 export const createSubscription = async (
 	subscriptionTime: Subscription,
@@ -17,6 +17,9 @@ export const createSubscription = async (
 	const currentDate = new Date(currentTimestamp)
 
 	switch (subscriptionTime) {
+		case "15days":
+			currentDate.setMonth(currentDate.getDay() + 15)
+			break
 		case "1month":
 			currentDate.setMonth(currentDate.getMonth() + 1)
 			break
