@@ -12,7 +12,6 @@ export const createUser = async (user: User, referer?: string) => {
 		create: {
 			id: user.id,
 			name: user.name || "",
-			referalCode: user.id,
 		},
 	})
 }

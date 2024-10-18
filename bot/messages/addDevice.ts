@@ -4,12 +4,12 @@ import { device } from "../constants"
 
 export const sendAddDevice = async (ctx: Context, replaceMessageId?: number) => {
 	const keyboard = new InlineKeyboard()
-		.text("Телевизор", `device=${device.tv}`)
+		.text("🖥️ Телевизор 🖥️", `device=${device.tv}`)
 		.row()
-		.text("IOS", `device=${device.ios}`)
-		.text("Android", `device=${device.android}`)
-		.text("Windows", `device=${device.windows}`)
-		.text("Macos", `device=${device.macos}`)
+		.text("📱 IOS 📱", `device=${device.ios}`)
+		.text("📱 Android 📱", `device=${device.android}`)
+		.text("💻 Windows 💻", `device=${device.windows}`)
+		.text("💻 MacOS 💻", `device=${device.macos}`)
 
 	if (replaceMessageId) {
 		try {

@@ -1,0 +1,3 @@
+model Transactions {
+  id String @id @map("_id")
+}

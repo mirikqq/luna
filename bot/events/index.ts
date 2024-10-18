@@ -46,5 +46,7 @@ export const registerEvents = (bot: Bot) => {
 			// 	ctx.callbackQuery.data.split("=")[1] as unknown as Device,
 			// )
 		}
+		if (ctx.callbackQuery.data.startsWith("referalDevice")) {
+		}
 	})
 }

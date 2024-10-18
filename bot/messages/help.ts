@@ -7,7 +7,7 @@ export const sendHelpMessage = async (ctx: Context, replaceMessageId?: number) =
 		.row()
 		.text("📱 Помощь с Android 📱", Events.help_android)
 		.row()
-		.text("💻 Помощь с MacOs 💻", Events.help_macos)
+		.text("💻 Помощь с MacOS 💻", Events.help_macos)
 		.row()
 		.text("💻 Помощь с Windows 💻", Events.help_windows)
 		.row()

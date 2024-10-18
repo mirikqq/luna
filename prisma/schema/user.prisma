@@ -3,5 +3,4 @@ model User {
   name  String?
   subscription Subscription[]
   isReferalCodeUsed Boolean @default(false)
-  referalCode String
 }
